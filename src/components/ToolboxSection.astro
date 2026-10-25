@@ -1,0 +1,81 @@
+---
+const categories = [
+  {
+    title: 'Languages',
+    items: ['Dart', 'TypeScript', 'Swift', 'JavaScript', 'GLSL / Shaders', 'C++'],
+  },
+  {
+    title: 'Frameworks & Shells',
+    items: ['Flutter', 'React Native', 'Expo SDK 50–57', 'SwiftUI', 'AppKit', 'Vite'],
+  },
+  {
+    title: 'State & Persistence',
+    items: [
+      'Riverpod & CodeGen',
+      'TanStack Query',
+      'Clean Architecture / DI',
+      'PocketBase',
+      'AsyncStorage Persister',
+      'Atomic FileSystem Queue',
+    ],
+  },
+  {
+    title: 'Hardware & Native APIs',
+    items: [
+      'CoreBluetooth (BLE RSSI)',
+      'Background TaskManager',
+      'WebRTC / Chunked MJPEG',
+      'Mapbox Vector Maps',
+      'Shopify Skia 2D Canvas',
+      'Digital Signature Canvas',
+    ],
+  },
+  {
+    title: 'Delivery & Testing',
+    items: [
+      'Shorebird Code Push',
+      'EAS Build & EAS Update',
+      'Jest & React Testing Library',
+      'Headless Swift Validation',
+      'GitHub Actions CI/CD',
+      'Zod Form Validation',
+    ],
+  },
+];
+---
+
+<section class="py-16 sm:py-20 border-b" style="border-color: var(--rule-subtle);">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="max-w-2xl mb-12">
+      <div class="text-xs font-mono uppercase tracking-wider mb-2" style="color: var(--accent);">
+        Toolbox
+      </div>
+      <h2 class="text-3xl sm:text-4xl tracking-tight" style="font-family: var(--font-serif); color: var(--ink);">
+        Technologies in active rotation
+      </h2>
+      <p class="text-xs sm:text-sm mt-1" style="color: var(--muted);">
+        Only frameworks, libraries, and protocols actually committed in the project repositories.
+      </p>
+    </div>
+
+    <!-- Category Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+      {categories.map((cat) => (
+        <div class="space-y-3">
+          <h3 class="text-xs font-mono font-semibold uppercase tracking-wider" style="color: var(--ink);">
+            {cat.title}
+          </h3>
+          <ul class="space-y-1.5 text-xs font-mono" style="color: var(--ink-secondary);">
+            {cat.items.map((item) => (
+              <li class="flex items-center gap-1.5 py-1 px-2 rounded" style="background-color: var(--surface); border: 1px solid var(--rule-subtle);">
+                <span class="w-1 h-1 rounded-full shrink-0" style="background-color: var(--accent);"></span>
+                <span class="truncate">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

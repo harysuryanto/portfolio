@@ -1,0 +1,112 @@
+---
+import { profile } from '../data/profile';
+---
+
+<header class="sticky top-0 z-40 w-full border-b backdrop-blur-md transition-colors" style="background-color: color-mix(in srgb, var(--bg) 85%, transparent); border-color: var(--rule-subtle);">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+    <!-- Brand / Mark -->
+    <a href="#" class="group flex items-center gap-3 no-underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] rounded-lg p-1">
+      <div class="w-8 h-8 rounded-lg flex items-center justify-center font-mono font-bold text-xs transition-colors" style="background-color: var(--surface); color: var(--ink); border: 1px solid var(--rule);">
+        HS
+      </div>
+      <div class="flex flex-col">
+        <span class="text-xs font-semibold tracking-tight" style="color: var(--ink);">
+          {profile.name}
+        </span>
+        <span class="text-[11px] font-mono leading-none mt-0.5" style="color: var(--muted);">
+          {profile.role}
+        </span>
+      </div>
+    </a>
+
+    <!-- Navigation -->
+    <nav class="hidden md:flex items-center gap-6 text-xs font-mono" style="color: var(--ink-secondary);">
+      <a href="#work" class="hover:text-[var(--accent)] transition-colors">Work</a>
+      <a href="#timeline" class="hover:text-[var(--accent)] transition-colors">Timeline</a>
+      <a href="#approach" class="hover:text-[var(--accent)] transition-colors">Approach</a>
+      <a href="#open-source" class="hover:text-[var(--accent)] transition-colors">Open Source</a>
+      <a href="#contact" class="hover:text-[var(--accent)] transition-colors">Contact</a>
+    </nav>
+
+    <!-- Status & Clock & Theme -->
+    <div class="flex items-center gap-3 text-xs font-mono">
+      <!-- Live WIB Clock -->
+      <span id="wib-clock" class="hidden sm:inline-block px-2.5 py-1 rounded-md text-[11px]" style="background-color: var(--surface-subtle); color: var(--muted); border: 1px solid var(--rule-subtle);">
+        --:-- WIB
+      </span>
+
+      <!-- Hireable Dot -->
+      <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px]" style="background-color: var(--surface-subtle); border: 1px solid var(--rule-subtle); color: var(--ink-secondary);">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style="background-color: var(--accent);"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2" style="background-color: var(--accent);"></span>
+        </span>
+        <span class="hidden sm:inline">Open to roles</span>
+      </div>
+
+      <!-- Theme Toggle -->
+      <button
+        id="theme-toggle"
+        type="button"
+        aria-label="Toggle color theme"
+        class="w-8 h-8 rounded-lg flex items-center justify-center transition-colors cursor-pointer"
+        style="background-color: var(--surface); border: 1px solid var(--rule); color: var(--ink);"
+      >
+        <span class="text-xs theme-icon-sun">☼</span>
+        <span class="text-xs theme-icon-moon hidden">☾</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Clock update in Jakarta (WIB = UTC+7)
+  function updateClock() {
+    const el = document.getElementById('wib-clock');
+    if (!el) return;
+    try {
+      const now = new Date();
+      const timeStr = new Intl.DateTimeFormat('en-GB', {
+        timeZone: 'Asia/Jakarta',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false,
+      }).format(now);
+      el.textContent = `${timeStr} WIB (UTC+7)`;
+    } catch {
+      el.textContent = 'Indonesia · UTC+7';
+    }
+  }
+  updateClock();
+  setInterval(updateClock, 30000);
+
+  // Theme toggle
+  const toggle = document.getElementById('theme-toggle');
+  const sunIcon = toggle?.querySelector('.theme-icon-sun');
+  const moonIcon = toggle?.querySelector('.theme-icon-moon');
+
+  function getPreferredTheme(): 'light' | 'dark' {
+    const saved = localStorage.getItem('theme');
+    if (saved === 'light' || saved === 'dark') return saved;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+
+  function applyTheme(theme: 'light' | 'dark') {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    if (theme === 'dark') {
+      sunIcon?.classList.add('hidden');
+      moonIcon?.classList.remove('hidden');
+    } else {
+      sunIcon?.classList.remove('hidden');
+      moonIcon?.classList.add('hidden');
+    }
+  }
+
+  applyTheme(getPreferredTheme());
+
+  toggle?.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  });
+</script>

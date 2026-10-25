@@ -147,9 +147,16 @@
       }
     }
   },
-  "openSource": [
-    {
-      "name": "BRB",
+  "repos": {
+    "personal-portfolio": {
+      "description": "",
+      "stars": 0,
+      "language": "Astro",
+      "fork": false,
+      "url": "https://github.com/harysuryanto/personal-portfolio",
+      "pushedAt": "2026-10-23"
+    },
+    "BRB": {
       "description": "Walk away from your Mac, screen hides. Walk back, it unhides.",
       "stars": 0,
       "language": "Swift",
@@ -157,71 +164,7 @@
       "url": "https://github.com/harysuryanto/BRB",
       "pushedAt": "2026-10-13"
     },
-    {
-      "name": "discord_desktop_clone",
-      "description": "Discord desktop clone with Flutter",
-      "stars": 11,
-      "language": "Dart",
-      "fork": false,
-      "url": "https://github.com/harysuryanto/discord_desktop_clone",
-      "pushedAt": "2022-06-16"
-    },
-    {
-      "name": "avd_manager",
-      "description": "An app to manage your Android Virtual Devices.",
-      "stars": 4,
-      "language": "C++",
-      "fork": false,
-      "url": "https://github.com/harysuryanto/avd_manager",
-      "pushedAt": "2024-03-25"
-    },
-    {
-      "name": "clubhouse_clone",
-      "description": "Clubhouse clone using React Native.",
-      "stars": 4,
-      "language": "JavaScript",
-      "fork": false,
-      "url": "https://github.com/harysuryanto/clubhouse_clone",
-      "pushedAt": "2022-02-08"
-    },
-    {
-      "name": "tulis",
-      "description": "A Notepad on steroid 💪",
-      "stars": 1,
-      "language": "Dart",
-      "fork": false,
-      "url": "https://github.com/harysuryanto/tulis",
-      "pushedAt": "2026-07-24"
-    },
-    {
-      "name": "zor",
-      "description": "An app to plan your workouts.",
-      "stars": 1,
-      "language": "Dart",
-      "fork": false,
-      "url": "https://github.com/harysuryanto/zor",
-      "pushedAt": "2022-09-22"
-    },
-    {
-      "name": "diff-draft",
-      "description": "VS Code extension to generate senior-level commit message.",
-      "stars": 0,
-      "language": "TypeScript",
-      "fork": false,
-      "url": "https://github.com/harysuryanto/diff-draft",
-      "pushedAt": "2026-08-07"
-    },
-    {
-      "name": "cute_doggo",
-      "description": "Cute doggo in your desktop. Built with Flutter and Rive.",
-      "stars": 1,
-      "language": "C++",
-      "fork": false,
-      "url": "https://github.com/harysuryanto/cute_doggo",
-      "pushedAt": "2023-03-16"
-    },
-    {
-      "name": "Lyripeek",
+    "Lyripeek": {
       "description": "",
       "stars": 0,
       "language": "Swift",
@@ -229,17 +172,15 @@
       "url": "https://github.com/harysuryanto/Lyripeek",
       "pushedAt": "2026-08-08"
     },
-    {
-      "name": "MemVibe",
-      "description": "",
+    "diff-draft": {
+      "description": "VS Code extension to generate senior-level commit message.",
       "stars": 0,
-      "language": "Swift",
+      "language": "TypeScript",
       "fork": false,
-      "url": "https://github.com/harysuryanto/MemVibe",
-      "pushedAt": "2026-03-02"
+      "url": "https://github.com/harysuryanto/diff-draft",
+      "pushedAt": "2026-08-07"
     },
-    {
-      "name": "tasbih_digital",
+    "tasbih_digital": {
       "description": "Aplikasi yang membantu Anda mengelola tasbih.",
       "stars": 0,
       "language": "TypeScript",
@@ -247,14 +188,333 @@
       "url": "https://github.com/harysuryanto/tasbih_digital",
       "pushedAt": "2026-07-29"
     },
-    {
-      "name": "flutter_mjpeg",
+    "tulis": {
+      "description": "A Notepad on steroid 💪",
+      "stars": 1,
+      "language": "Dart",
+      "fork": false,
+      "url": "https://github.com/harysuryanto/tulis",
+      "pushedAt": "2026-07-24"
+    },
+    "flutter_mjpeg": {
       "description": "Flutter widget to show mjpeg stream from URL",
       "stars": 0,
       "language": "Dart",
       "fork": true,
       "url": "https://github.com/harysuryanto/flutter_mjpeg",
       "pushedAt": "2026-03-24"
+    },
+    "MemVibe": {
+      "description": "",
+      "stars": 0,
+      "language": "Swift",
+      "fork": false,
+      "url": "https://github.com/harysuryanto/MemVibe",
+      "pushedAt": "2026-03-02"
+    },
+    "supabase-flutter-examples": {
+      "description": "Collections of example projects",
+      "stars": 0,
+      "language": "Dart",
+      "fork": true,
+      "url": "https://github.com/harysuryanto/supabase-flutter-examples",
+      "pushedAt": "2024-04-03"
+    },
+    "avd_manager": {
+      "description": "An app to manage your Android Virtual Devices.",
+      "stars": 4,
+      "language": "C++",
+      "fork": false,
+      "url": "https://github.com/harysuryanto/avd_manager",
+      "pushedAt": "2024-03-25"
+    },
+    "cute_doggo": {
+      "description": "Cute doggo in your desktop. Built with Flutter and Rive.",
+      "stars": 1,
+      "language": "C++",
+      "fork": false,
+      "url": "https://github.com/harysuryanto/cute_doggo",
+      "pushedAt": "2023-03-16"
+    },
+    "novelin-chat": {
+      "description": "",
+      "stars": 0,
+      "language": "JavaScript",
+      "fork": false,
+      "url": "https://github.com/harysuryanto/novelin-chat",
+      "pushedAt": "2022-12-12"
+    },
+    "zor": {
+      "description": "An app to plan your workouts.",
+      "stars": 1,
+      "language": "Dart",
+      "fork": false,
+      "url": "https://github.com/harysuryanto/zor",
+      "pushedAt": "2022-09-22"
+    },
+    "discord_desktop_clone": {
+      "description": "Discord desktop clone with Flutter",
+      "stars": 11,
+      "language": "Dart",
+      "fork": false,
+      "url": "https://github.com/harysuryanto/discord_desktop_clone",
+      "pushedAt": "2022-06-16"
+    },
+    "zor_lite": {
+      "description": "",
+      "stars": 0,
+      "language": "Dart",
+      "fork": false,
+      "url": "https://github.com/harysuryanto/zor_lite",
+      "pushedAt": "2022-06-06"
+    },
+    "fluent_ui": {
+      "description": "Implements Microsoft's Fluent Design System in Flutter.",
+      "stars": 0,
+      "language": "Dart",
+      "fork": true,
+      "url": "https://github.com/harysuryanto/fluent_ui",
+      "pushedAt": "2022-05-20"
+    },
+    "diving": {
+      "description": "I created this project to practice my React Native skill. This project only covers user interface.",
+      "stars": 0,
+      "language": "TypeScript",
+      "fork": false,
+      "url": "https://github.com/harysuryanto/diving",
+      "pushedAt": "2022-02-08"
+    },
+    "clubhouse_clone": {
+      "description": "Clubhouse clone using React Native.",
+      "stars": 4,
+      "language": "JavaScript",
+      "fork": false,
+      "url": "https://github.com/harysuryanto/clubhouse_clone",
+      "pushedAt": "2022-02-08"
+    },
+    "dinografi": {
+      "description": "Encryption and decryption app. We can chose Polyalphabetic Cipher or Block Cipher. Running on Android.",
+      "stars": 0,
+      "language": "Java",
+      "fork": false,
+      "url": "https://github.com/harysuryanto/dinografi",
+      "pushedAt": "2022-01-21"
+    },
+    "fajarsj-tictactoe": {
+      "description": "",
+      "stars": 0,
+      "language": "JavaScript",
+      "fork": true,
+      "url": "https://github.com/harysuryanto/fajarsj-tictactoe",
+      "pushedAt": "2021-10-31"
+    },
+    "pokedex": {
+      "description": "",
+      "stars": 0,
+      "language": "JavaScript",
+      "fork": true,
+      "url": "https://github.com/harysuryanto/pokedex",
+      "pushedAt": "2021-10-31"
+    },
+    "Web-dev-Snippets": {
+      "description": "This repository contains small HTML/CSS or JS Snippets that you can use in your web devolopment projects. Enjoy and as always feel free to contribute. Happy Coding :octocat:",
+      "stars": 0,
+      "language": "HTML",
+      "fork": true,
+      "url": "https://github.com/harysuryanto/Web-dev-Snippets",
+      "pushedAt": "2021-10-27"
+    },
+    "GitBasics": {
+      "description": "",
+      "stars": 0,
+      "language": "HTML",
+      "fork": true,
+      "url": "https://github.com/harysuryanto/GitBasics",
+      "pushedAt": "2021-10-27"
+    },
+    "lazyCode": {
+      "description": "A place to keep track of your codes.",
+      "stars": 0,
+      "language": "HTML",
+      "fork": true,
+      "url": "https://github.com/harysuryanto/lazyCode",
+      "pushedAt": "2021-10-26"
+    },
+    "Zoop-Hacktoberfest": {
+      "description": "Zoop is all about connecting :D",
+      "stars": 0,
+      "language": "CSS",
+      "fork": true,
+      "url": "https://github.com/harysuryanto/Zoop-Hacktoberfest",
+      "pushedAt": "2021-10-24"
+    },
+    "HTML-project": {
+      "description": "🌎",
+      "stars": 0,
+      "language": "HTML",
+      "fork": true,
+      "url": "https://github.com/harysuryanto/HTML-project",
+      "pushedAt": "2021-10-24"
+    },
+    "hack-2021": {
+      "description": "A beginner friendly project to help you towards your open source journey.",
+      "stars": 0,
+      "language": "HTML",
+      "fork": true,
+      "url": "https://github.com/harysuryanto/hack-2021",
+      "pushedAt": "2021-10-24"
+    },
+    "Simple-Web-site": {
+      "description": "",
+      "stars": 0,
+      "language": "HTML",
+      "fork": true,
+      "url": "https://github.com/harysuryanto/Simple-Web-site",
+      "pushedAt": "2021-10-23"
+    },
+    "react-quotes": {
+      "description": "",
+      "stars": 0,
+      "language": "JavaScript",
+      "fork": false,
+      "url": "https://github.com/harysuryanto/react-quotes",
+      "pushedAt": "2021-10-16"
+    },
+    "Canvas-Creations": {
+      "description": "A ZTM Challenge for Hacktoberfest 2020",
+      "stars": 0,
+      "language": "JavaScript",
+      "fork": true,
+      "url": "https://github.com/harysuryanto/Canvas-Creations",
+      "pushedAt": "2021-10-09"
+    },
+    "ngemim": {
+      "description": "A web app to boost your mood.",
+      "stars": 0,
+      "language": "TypeScript",
+      "fork": false,
+      "url": "https://github.com/harysuryanto/ngemim",
+      "pushedAt": "2021-05-14"
+    },
+    "novelin-backend": {
+      "description": "",
+      "stars": 0,
+      "language": "PHP",
+      "fork": false,
+      "url": "https://github.com/harysuryanto/novelin-backend",
+      "pushedAt": "2021-05-04"
+    },
+    "kabarin": {
+      "description": "",
+      "stars": 0,
+      "language": "Dart",
+      "fork": false,
+      "url": "https://github.com/harysuryanto/kabarin",
+      "pushedAt": "2021-03-17"
+    },
+    "hello-world": {
+      "description": "",
+      "stars": 0,
+      "language": "HTML",
+      "fork": false,
+      "url": "https://github.com/harysuryanto/hello-world",
+      "pushedAt": "2021-01-27"
+    },
+    "weather-web-app": {
+      "description": "",
+      "stars": 0,
+      "language": "PHP",
+      "fork": false,
+      "url": "https://github.com/harysuryanto/weather-web-app",
+      "pushedAt": "2020-10-30"
+    },
+    "zoom-clone": {
+      "description": "A video conference app, running on Node.js.",
+      "stars": 0,
+      "language": "JavaScript",
+      "fork": false,
+      "url": "https://github.com/harysuryanto/zoom-clone",
+      "pushedAt": "2020-10-23"
+    },
+    "Hacktoberfest2020-1": {
+      "description": "A repo for new open source contributers to begin with open source contribution. Contribute and earn awesome swags.",
+      "stars": 0,
+      "language": "Java",
+      "fork": true,
+      "url": "https://github.com/harysuryanto/Hacktoberfest2020-1",
+      "pushedAt": "2020-10-17"
+    },
+    "Hacktoberfest-2020": {
+      "description": ":octocat: Welcome to Open-source! Simply add your details to contributors | Repo for Hacktoberfest 2020 ✅",
+      "stars": 0,
+      "language": "JavaScript",
+      "fork": true,
+      "url": "https://github.com/harysuryanto/Hacktoberfest-2020",
+      "pushedAt": "2020-10-17"
+    },
+    "short-url": {
+      "description": "Self hosted url shortener application, a bit.ly alternative",
+      "stars": 0,
+      "language": "PHP",
+      "fork": true,
+      "url": "https://github.com/harysuryanto/short-url",
+      "pushedAt": "2020-10-13"
+    },
+    "Hacktoberfest": {
+      "description": "Make your first PR! ~ A beginner friendly repository made specifically for open source beginners. Add any program under any language (it can be anything from a hello-world program to a complex data structure algorithm) or update the existing one. Just make sure you add the program under the correct language directory. Happy coding",
+      "stars": 0,
+      "language": "C++",
+      "fork": true,
+      "url": "https://github.com/harysuryanto/Hacktoberfest",
+      "pushedAt": "2020-10-04"
+    },
+    "Hacktoberfest2020": {
+      "description": "Make your first Pull Request and earn a free tee from GitHub! ",
+      "stars": 0,
+      "language": "HTML",
+      "fork": true,
+      "url": "https://github.com/harysuryanto/Hacktoberfest2020",
+      "pushedAt": "2020-10-04"
+    },
+    "learn-GIT-hacktober": {
+      "description": "learn to using GIT and join hacktoberfest",
+      "stars": 0,
+      "language": "JavaScript",
+      "fork": false,
+      "url": "https://github.com/harysuryanto/learn-GIT-hacktober",
+      "pushedAt": "2020-10-04"
+    },
+    "learn-open-source": {
+      "description": "Learn how to contribute to an open-source project , and learn how to make a pull request",
+      "stars": 0,
+      "language": "JavaScript",
+      "fork": true,
+      "url": "https://github.com/harysuryanto/learn-open-source",
+      "pushedAt": "2020-10-01"
+    },
+    "awesome-js-sauce": {
+      "description": "An awesome framework for making crap websites",
+      "stars": 0,
+      "language": "JavaScript",
+      "fork": true,
+      "url": "https://github.com/harysuryanto/awesome-js-sauce",
+      "pushedAt": "2020-08-15"
+    },
+    "Covid19SymptomTracker": {
+      "description": "",
+      "stars": 0,
+      "language": "Java",
+      "fork": false,
+      "url": "https://github.com/harysuryanto/Covid19SymptomTracker",
+      "pushedAt": "2020-07-12"
+    },
+    "github-embed": {
+      "description": "Embed code from Github on HTML page",
+      "stars": 0,
+      "language": "JavaScript",
+      "fork": true,
+      "url": "https://github.com/harysuryanto/github-embed",
+      "pushedAt": "2017-09-30"
     }
-  ]
+  }
 }

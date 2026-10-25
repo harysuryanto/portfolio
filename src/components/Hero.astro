@@ -1,0 +1,107 @@
+---
+import { profile } from '../data/profile';
+import activity from '../data/activity.json';
+
+const totalCommits = Object.values(activity.projects).reduce((sum, p) => sum + p.commits, 0);
+const projectCount = Object.keys(activity.projects).length;
+const publicRepoCount = activity.github.publicRepos;
+const sinceYear = activity.github.since;
+---
+
+<section class="pt-16 pb-16 sm:pt-24 sm:pb-20 border-b" style="border-color: var(--rule-subtle);">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl">
+      <!-- Tag / Role -->
+      <div class="inline-flex items-center gap-2 text-xs font-mono tracking-wider uppercase mb-6" style="color: var(--accent);">
+        <span class="inline-block w-1.5 h-1.5 rounded-full" style="background-color: var(--accent);"></span>
+        <span>Mobile & Systems Engineer · Indonesia</span>
+      </div>
+
+      <!-- Main Name -->
+      <h1 class="text-5xl sm:text-7xl lg:text-8xl tracking-tight leading-[0.95] mb-6" style="font-family: var(--font-serif); color: var(--ink);">
+        Hary Suryanto
+      </h1>
+
+      <!-- Primary Statement -->
+      <p class="text-xl sm:text-2xl leading-relaxed mb-8" style="font-family: var(--font-serif); color: var(--ink-secondary);">
+        I engineer mobile clients that survive the real world: photobooth kiosks with live camera streams, delivery trucks that drop offline in tunnels, sales meetings running complex pricing formulas, and Mac menu-bar daemons tracking Bluetooth radio range.
+      </p>
+
+      <!-- Subtext / Stack evidence -->
+      <p class="text-sm sm:text-base leading-relaxed mb-10 max-w-2xl" style="color: var(--muted);">
+        Specializing in <strong style="color: var(--ink);">Flutter</strong>, <strong style="color: var(--ink);">React Native</strong>, and native <strong style="color: var(--ink);">Swift</strong>. Focused on Clean Architecture, over-the-air deployment pipelines, hardware abstraction layers, and offline-first data structures.
+      </p>
+
+      <!-- Primary Actions -->
+      <div class="flex flex-wrap items-center gap-4 mb-14 text-xs font-mono">
+        <a
+          href="#work"
+          class="inline-flex items-center gap-2 px-5 py-3 rounded-lg font-semibold transition-all no-underline shadow-sm"
+          style="background-color: var(--accent); color: #ffffff;"
+        >
+          <span>Selected Work ({projectCount})</span>
+          <span>↓</span>
+        </a>
+
+        <a
+          href={`mailto:${profile.email}`}
+          class="inline-flex items-center gap-2 px-4 py-3 rounded-lg transition-all no-underline"
+          style="background-color: var(--surface); color: var(--ink); border: 1px solid var(--rule);"
+        >
+          <span>Get in Touch</span>
+          <span>→</span>
+        </a>
+
+        <a
+          href={profile.githubUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-4 py-3 rounded-lg transition-all no-underline"
+          style="background-color: var(--surface-subtle); color: var(--ink-secondary); border: 1px solid var(--rule-subtle);"
+        >
+          <span>github/{profile.githubUser}</span>
+          <span class="text-[10px]">↗</span>
+        </a>
+      </div>
+
+      <!-- By-the-Numbers Grounded Strip -->
+      <div class="pt-8 border-t grid grid-cols-2 sm:grid-cols-4 gap-6 text-left" style="border-color: var(--rule-subtle);">
+        <div>
+          <div class="text-2xl sm:text-3xl font-mono font-bold tracking-tight" style="color: var(--ink);">
+            {totalCommits.toLocaleString()}
+          </div>
+          <div class="text-[11px] font-mono mt-1" style="color: var(--muted);">
+            authored commits in 8 app checkouts
+          </div>
+        </div>
+
+        <div>
+          <div class="text-2xl sm:text-3xl font-mono font-bold tracking-tight" style="color: var(--ink);">
+            {projectCount}
+          </div>
+          <div class="text-[11px] font-mono mt-1" style="color: var(--muted);">
+            client & production codebases
+          </div>
+        </div>
+
+        <div>
+          <div class="text-2xl sm:text-3xl font-mono font-bold tracking-tight" style="color: var(--ink);">
+            {publicRepoCount}
+          </div>
+          <div class="text-[11px] font-mono mt-1" style="color: var(--muted);">
+            public repositories on GitHub
+          </div>
+        </div>
+
+        <div>
+          <div class="text-2xl sm:text-3xl font-mono font-bold tracking-tight" style="color: var(--ink);">
+            {sinceYear}
+          </div>
+          <div class="text-[11px] font-mono mt-1" style="color: var(--muted);">
+            shipping code on GitHub since
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

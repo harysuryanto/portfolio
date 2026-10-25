@@ -1,0 +1,112 @@
+---
+import activity from '../data/activity.json';
+import { projects } from '../data/projects';
+
+// Generate 48 months from 2022-11 through 2026-10
+const months: string[] = [];
+for (let y = 2022; y <= 2026; y++) {
+  const startM = y === 2022 ? 11 : 1;
+  const endM = y === 2026 ? 10 : 12;
+  for (let m = startM; m <= endM; m++) {
+    months.push(`${y}-${String(m).padStart(2, '0')}`);
+  }
+}
+
+// Compute year spans for header
+const years = [
+  { year: 2022, span: 2 },
+  { year: 2023, span: 12 },
+  { year: 2024, span: 12 },
+  { year: 2025, span: 12 },
+  { year: 2026, span: 10 },
+];
+
+function getOpacity(commits: number): string {
+  if (commits === 0) return '0.04';
+  if (commits <= 10) return '0.35';
+  if (commits <= 40) return '0.6';
+  if (commits <= 100) return '0.85';
+  return '1';
+}
+
+function getBgColor(commits: number): string {
+  if (commits === 0) return 'var(--rule-subtle)';
+  return 'var(--accent)';
+}
+---
+
+<section id="timeline" class="py-16 sm:py-20 border-b" style="border-color: var(--rule-subtle);">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+      <div>
+        <div class="text-xs font-mono uppercase tracking-wider mb-2" style="color: var(--accent);">
+          Grounded Timeline · Git Log Evidence
+        </div>
+        <h2 class="text-3xl sm:text-4xl tracking-tight" style="font-family: var(--font-serif); color: var(--ink);">
+          Four years across 8 codebases
+        </h2>
+        <p class="text-xs sm:text-sm mt-1 max-w-xl" style="color: var(--muted);">
+          Each block represents one month of authored commits in that project checkout. Total: 5,241 commits across client apps, enterprise systems, and personal utilities.
+        </p>
+      </div>
+
+      <!-- Legend -->
+      <div class="flex items-center gap-2 text-[11px] font-mono" style="color: var(--muted);">
+        <span>Fewer</span>
+        <span class="w-2.5 h-2.5 rounded-sm inline-block" style="background-color: var(--rule-subtle);"></span>
+        <span class="w-2.5 h-2.5 rounded-sm inline-block" style="background-color: var(--accent); opacity: 0.35;"></span>
+        <span class="w-2.5 h-2.5 rounded-sm inline-block" style="background-color: var(--accent); opacity: 0.6;"></span>
+        <span class="w-2.5 h-2.5 rounded-sm inline-block" style="background-color: var(--accent); opacity: 0.85;"></span>
+        <span class="w-2.5 h-2.5 rounded-sm inline-block" style="background-color: var(--accent);"></span>
+        <span>More</span>
+      </div>
+    </div>
+
+    <!-- Swimlane chart container (horizontally scrollable on mobile) -->
+    <div class="overflow-x-auto pb-4">
+      <div class="min-w-[760px] p-4 sm:p-6 rounded-xl border" style="background-color: var(--surface); border-color: var(--rule-subtle);">
+        <!-- Years header row -->
+        <div class="grid grid-cols-[200px_repeat(48,1fr)] gap-1 mb-2 text-[11px] font-mono" style="color: var(--muted);">
+          <div></div>
+          {years.map((y) => (
+            <div style={`grid-column: span ${y.span} / span ${y.span};`} class="text-left pl-1 border-l" style="border-color: var(--rule-subtle);">
+              {y.year}
+            </div>
+          ))}
+        </div>
+
+        <!-- Project swimlanes -->
+        <div class="space-y-2">
+          {projects.map((proj) => {
+            const act = activity.projects[proj.id as keyof typeof activity.projects];
+            return (
+              <div class="grid grid-cols-[200px_repeat(48,1fr)] gap-1 items-center group">
+                <!-- Label -->
+                <div class="pr-3 flex items-center justify-between text-xs font-mono truncate">
+                  <span class="font-medium truncate" style="color: var(--ink);">
+                    {proj.name}
+                  </span>
+                  <span class="text-[10px] ml-2 tabular-nums" style="color: var(--muted);">
+                    {act?.commits.toLocaleString()}
+                  </span>
+                </div>
+
+                <!-- 48 month blocks -->
+                {months.map((m) => {
+                  const count = act?.months[m as keyof typeof act.months] ?? 0;
+                  return (
+                    <div
+                      class="h-6 rounded-[2px] transition-transform duration-100 group-hover:scale-y-105"
+                      style={`background-color: ${getBgColor(count)}; opacity: ${getOpacity(count)};`}
+                      title={`${proj.name} · ${m}: ${count} commits`}
+                    />
+                  );
+                })}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,179 @@
+---
+import { Image } from 'astro:assets';
+import type { Project } from '../data/projects';
+import activity from '../data/activity.json';
+
+import iconAmal from '../assets/icons/amal-academy.png';
+import iconBrb from '../assets/icons/brb.png';
+import iconCash from '../assets/icons/cash.png';
+import iconLandManifest from '../assets/icons/land-manifest.png';
+import iconPapyrus from '../assets/icons/papyrus.png';
+import iconSipkl from '../assets/icons/sipkl.png';
+
+interface Props {
+  project: Project;
+  defaultOpen?: boolean;
+}
+
+const { project, defaultOpen = false } = Astro.props;
+
+const iconMap: Record<string, ImageMetadata> = {
+  papyrus: iconPapyrus,
+  'land-manifest': iconLandManifest,
+  sipkl: iconSipkl,
+  brb: iconBrb,
+  cash: iconCash,
+  'amal-academy': iconAmal,
+  'amal-partner': iconAmal,
+};
+
+const iconAsset = iconMap[project.id];
+const act = activity.projects[project.id as keyof typeof activity.projects];
+const yearSpan = act ? `${act.first.slice(0, 4)}–${act.last.slice(0, 4)}` : '';
+---
+
+<article
+  class="border rounded-xl transition-all duration-150 overflow-hidden"
+  style="background-color: var(--surface); border-color: var(--rule-subtle);"
+  data-project-id={project.id}
+>
+  <details open={defaultOpen} class="group">
+    <!-- Summary Header -->
+    <summary class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 select-none hover:bg-[var(--surface-subtle)] transition-colors">
+      <div class="flex items-center gap-3.5 min-w-0">
+        <!-- Index -->
+        <span class="font-mono text-xs font-semibold w-6 text-right shrink-0" style="color: var(--muted);">
+          {project.index}
+        </span>
+
+        <!-- Icon or Monogram Tile -->
+        <div class="w-11 h-11 rounded-lg shrink-0 overflow-hidden flex items-center justify-center border shadow-xs" style="background-color: var(--surface-subtle); border-color: var(--rule-subtle);">
+          {iconAsset ? (
+            <Image src={iconAsset} alt={`${project.name} icon`} width={44} height={44} class="w-full h-full object-cover" />
+          ) : (
+            <span class="font-mono font-bold text-sm" style={`color: ${project.color};`}>
+              {project.monogram ?? '••'}
+            </span>
+          )}
+        </div>
+
+        <!-- Name & Client -->
+        <div class="min-w-0">
+          <div class="flex items-center gap-2 flex-wrap">
+            <h3 class="text-base sm:text-lg font-bold tracking-tight truncate" style="color: var(--ink);">
+              {project.name}
+            </h3>
+            {project.featured && (
+              <span class="text-[10px] font-mono px-1.5 py-0.5 rounded uppercase font-semibold" style="background-color: var(--accent-subtle); color: var(--accent);">
+                Featured
+              </span>
+            )}
+          </div>
+          <div class="flex items-center gap-2 text-xs font-mono mt-0.5 flex-wrap" style="color: var(--muted);">
+            <span>{project.client}</span>
+            <span>·</span>
+            <span>{project.kind}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Meta & Disclosure -->
+      <div class="flex items-center gap-3 shrink-0 self-end sm:self-center text-xs font-mono">
+        <!-- Authored Commits -->
+        {act && (
+          <span class="hidden md:inline-block px-2.5 py-1 rounded text-[11px] font-mono tabular-nums" style="background-color: var(--surface-subtle); color: var(--ink-secondary); border: 1px solid var(--rule-subtle);">
+            {act.commits.toLocaleString()} commits
+          </span>
+        )}
+
+        <!-- Year Span -->
+        <span class="text-[11px]" style="color: var(--muted);">
+          {yearSpan}
+        </span>
+
+        <!-- Chevron Icon -->
+        <span class="w-6 h-6 rounded-md flex items-center justify-center transition-transform duration-200 group-open:rotate-90 text-sm" style="color: var(--muted);">
+          ›
+        </span>
+      </div>
+    </summary>
+
+    <!-- Expanded Details Body -->
+    <div class="px-5 pb-6 pt-2 border-t text-sm space-y-6" style="border-color: var(--rule-subtle); background-color: var(--bg);">
+      <!-- Tagline -->
+      <p class="text-base sm:text-lg leading-relaxed pt-2" style="font-family: var(--font-serif); color: var(--ink-secondary);">
+        {project.tagline}
+      </p>
+
+      <!-- Grid: Left = What was built, Right = Stack & Platforms -->
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-8">
+        <!-- What was built (verified bullets) -->
+        <div>
+          <div class="text-[11px] font-mono uppercase tracking-wider mb-3 font-semibold" style="color: var(--accent);">
+            Notable Engineering & Architecture
+          </div>
+          <ul class="space-y-2.5 text-xs sm:text-sm leading-relaxed" style="color: var(--ink-secondary);">
+            {project.built.map((b) => (
+              <li class="flex items-start gap-2.5">
+                <span class="shrink-0 mt-1 font-mono text-xs" style="color: var(--accent);">
+                  ↳
+                </span>
+                <span>{b}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Meta Sidebar -->
+        <div class="space-y-5 text-xs font-mono">
+          <!-- Stack Tags -->
+          <div>
+            <div class="text-[11px] uppercase tracking-wider mb-2" style="color: var(--muted);">
+              Technologies
+            </div>
+            <div class="flex flex-wrap gap-1.5">
+              {project.stack.map((t) => (
+                <span class="px-2 py-1 rounded text-[11px]" style="background-color: var(--surface); color: var(--ink); border: 1px solid var(--rule-subtle);">
+                  {t}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <!-- Platforms -->
+          <div>
+            <div class="text-[11px] uppercase tracking-wider mb-2" style="color: var(--muted);">
+              Target Platforms
+            </div>
+            <div class="flex flex-wrap gap-1.5">
+              {project.platforms.map((p) => (
+                <span class="px-2 py-0.5 rounded text-[11px]" style="background-color: var(--surface-subtle); color: var(--muted);">
+                  {p}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <!-- External Links if any -->
+          {project.repoUrl && (
+            <div>
+              <div class="text-[11px] uppercase tracking-wider mb-2" style="color: var(--muted);">
+                Code Reference
+              </div>
+              <a
+                href={project.repoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 text-xs font-semibold hover:underline"
+                style="color: var(--accent);"
+              >
+                <span>View Repository</span>
+                <span>↗</span>
+              </a>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  </details>
+</article>

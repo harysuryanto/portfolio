@@ -1,0 +1,64 @@
+---
+import { projects } from '../data/projects';
+import ProjectCard from './ProjectCard.astro';
+---
+
+<section id="work" class="py-16 sm:py-20 border-b" style="border-color: var(--rule-subtle);">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+      <div>
+        <div class="text-xs font-mono uppercase tracking-wider mb-2" style="color: var(--accent);">
+          Index · 01–08
+        </div>
+        <h2 class="text-3xl sm:text-4xl tracking-tight" style="font-family: var(--font-serif); color: var(--ink);">
+          Selected Work
+        </h2>
+        <p class="text-xs sm:text-sm mt-1 max-w-xl" style="color: var(--muted);">
+          Eight client apps, enterprise systems, and personal utilities built between 2022 and 2026. Click any row to expand the technical case file.
+        </p>
+      </div>
+
+      <!-- Expand/Collapse all controls -->
+      <div class="flex items-center gap-2 text-xs font-mono">
+        <button
+          id="expand-all-btn"
+          type="button"
+          class="px-3 py-1.5 rounded text-xs transition-colors cursor-pointer"
+          style="background-color: var(--surface); color: var(--ink-secondary); border: 1px solid var(--rule-subtle);"
+        >
+          Expand all
+        </button>
+        <button
+          id="collapse-all-btn"
+          type="button"
+          class="px-3 py-1.5 rounded text-xs transition-colors cursor-pointer"
+          style="background-color: var(--surface); color: var(--ink-secondary); border: 1px solid var(--rule-subtle);"
+        >
+          Collapse all
+        </button>
+      </div>
+    </div>
+
+    <!-- Cards List -->
+    <div class="space-y-3" id="projects-list">
+      {projects.map((project, idx) => (
+        <ProjectCard project={project} defaultOpen={idx < 2} />
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  const expandBtn = document.getElementById('expand-all-btn');
+  const collapseBtn = document.getElementById('collapse-all-btn');
+  const details = document.querySelectorAll<HTMLDetailsElement>('#projects-list details');
+
+  expandBtn?.addEventListener('click', () => {
+    details.forEach((d) => (d.open = true));
+  });
+
+  collapseBtn?.addEventListener('click', () => {
+    details.forEach((d) => (d.open = false));
+  });
+</script>

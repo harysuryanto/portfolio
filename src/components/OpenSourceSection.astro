@@ -1,0 +1,76 @@
+---
+import { openSourceRepos } from '../data/openSource';
+import { profile } from '../data/profile';
+---
+
+<section id="open-source" class="py-16 sm:py-20 border-b" style="border-color: var(--rule-subtle);">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+      <div class="max-w-2xl">
+        <div class="text-xs font-mono uppercase tracking-wider mb-2" style="color: var(--accent);">
+          Open Source & Side Projects
+        </div>
+        <h2 class="text-3xl sm:text-4xl tracking-tight" style="font-family: var(--font-serif); color: var(--ink);">
+          Experiments, clones, and public tools
+        </h2>
+        <p class="text-xs sm:text-sm mt-1" style="color: var(--muted);">
+          Selected public repositories from {profile.githubUser}. Live metadata synced from the GitHub API.
+        </p>
+      </div>
+
+      <a
+        href={profile.githubUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1.5 text-xs font-mono font-medium hover:underline shrink-0"
+        style="color: var(--accent);"
+      >
+        <span>All 46 public repos on GitHub</span>
+        <span>↗</span>
+      </a>
+    </div>
+
+    <!-- Repos Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {openSourceRepos.map((repo) => (
+        <a
+          href={repo.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="p-5 rounded-xl border flex flex-col justify-between space-y-4 hover:border-[var(--accent)] hover:shadow-sm transition-all no-underline group"
+          style="background-color: var(--surface); border-color: var(--rule-subtle);"
+        >
+          <div>
+            <!-- Top row: Name & Stars -->
+            <div class="flex items-center justify-between gap-2 mb-2">
+              <h3 class="font-mono text-sm font-bold tracking-tight group-hover:text-[var(--accent)] transition-colors truncate" style="color: var(--ink);">
+                {repo.name}
+              </h3>
+              {repo.stars > 0 && (
+                <span class="inline-flex items-center gap-1 text-[11px] font-mono px-2 py-0.5 rounded shrink-0" style="background-color: var(--surface-subtle); color: var(--ink-secondary);">
+                  <span>★</span>
+                  <span>{repo.stars}</span>
+                </span>
+              )}
+            </div>
+
+            <!-- Description -->
+            <p class="text-xs leading-relaxed" style="color: var(--ink-secondary);">
+              {repo.description}
+            </p>
+          </div>
+
+          <!-- Bottom meta: language + date -->
+          <div class="pt-3 border-t flex items-center justify-between text-[11px] font-mono" style="border-color: var(--rule-subtle); color: var(--muted);">
+            <div class="flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full" style="background-color: var(--accent);"></span>
+              <span>{repo.language}</span>
+            </div>
+            <span>{repo.pushedAt}</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
