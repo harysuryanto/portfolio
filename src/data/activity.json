@@ -1,0 +1,260 @@
+{
+  "generatedAt": "2026-10-25",
+  "github": {
+    "publicRepos": 46,
+    "since": "2016",
+    "hireable": true
+  },
+  "projects": {
+    "papyrus": {
+      "commits": 1511,
+      "first": "2025-01-01",
+      "last": "2026-07-12",
+      "months": {
+        "2025-01": 140,
+        "2025-02": 102,
+        "2025-03": 98,
+        "2025-04": 279,
+        "2025-05": 257,
+        "2025-06": 157,
+        "2025-07": 229,
+        "2025-08": 57,
+        "2025-09": 41,
+        "2025-10": 10,
+        "2025-11": 15,
+        "2025-12": 31,
+        "2026-01": 28,
+        "2026-02": 18,
+        "2026-03": 43,
+        "2026-04": 2,
+        "2026-05": 1,
+        "2026-07": 3
+      }
+    },
+    "product-catalog": {
+      "commits": 604,
+      "first": "2025-11-18",
+      "last": "2026-10-22",
+      "months": {
+        "2025-11": 31,
+        "2025-12": 39,
+        "2026-01": 32,
+        "2026-02": 29,
+        "2026-03": 31,
+        "2026-04": 74,
+        "2026-05": 64,
+        "2026-06": 30,
+        "2026-07": 30,
+        "2026-08": 75,
+        "2026-09": 78,
+        "2026-10": 91
+      }
+    },
+    "land-manifest": {
+      "commits": 584,
+      "first": "2025-09-22",
+      "last": "2026-02-12",
+      "months": {
+        "2025-09": 47,
+        "2025-10": 175,
+        "2025-11": 195,
+        "2025-12": 114,
+        "2026-01": 40,
+        "2026-02": 13
+      }
+    },
+    "sipkl": {
+      "commits": 592,
+      "first": "2024-03-18",
+      "last": "2024-10-30",
+      "months": {
+        "2024-03": 79,
+        "2024-04": 113,
+        "2024-05": 164,
+        "2024-06": 56,
+        "2024-07": 141,
+        "2024-08": 29,
+        "2024-10": 10
+      }
+    },
+    "amal-academy": {
+      "commits": 830,
+      "first": "2023-04-12",
+      "last": "2024-03-20",
+      "months": {
+        "2023-04": 97,
+        "2023-05": 170,
+        "2023-06": 25,
+        "2023-07": 62,
+        "2023-08": 62,
+        "2023-09": 59,
+        "2023-10": 58,
+        "2023-11": 27,
+        "2023-12": 23,
+        "2024-01": 116,
+        "2024-02": 103,
+        "2024-03": 28
+      }
+    },
+    "amal-partner": {
+      "commits": 97,
+      "first": "2023-05-30",
+      "last": "2023-08-08",
+      "months": {
+        "2023-05": 15,
+        "2023-06": 80,
+        "2023-07": 1,
+        "2023-08": 1
+      }
+    },
+    "cash": {
+      "commits": 950,
+      "first": "2022-11-13",
+      "last": "2026-10-11",
+      "months": {
+        "2022-11": 9,
+        "2022-12": 31,
+        "2023-01": 67,
+        "2023-02": 15,
+        "2024-05": 2,
+        "2024-07": 8,
+        "2024-08": 54,
+        "2024-09": 35,
+        "2024-10": 37,
+        "2024-11": 126,
+        "2024-12": 108,
+        "2025-01": 87,
+        "2025-02": 21,
+        "2025-03": 8,
+        "2025-06": 20,
+        "2026-02": 21,
+        "2026-03": 21,
+        "2026-04": 8,
+        "2026-05": 54,
+        "2026-06": 124,
+        "2026-07": 51,
+        "2026-09": 12,
+        "2026-10": 31
+      }
+    },
+    "brb": {
+      "commits": 73,
+      "first": "2026-09-15",
+      "last": "2026-10-13",
+      "months": {
+        "2026-09": 52,
+        "2026-10": 21
+      }
+    }
+  },
+  "openSource": [
+    {
+      "name": "BRB",
+      "description": "Walk away from your Mac, screen hides. Walk back, it unhides.",
+      "stars": 0,
+      "language": "Swift",
+      "fork": false,
+      "url": "https://github.com/harysuryanto/BRB",
+      "pushedAt": "2026-10-13"
+    },
+    {
+      "name": "discord_desktop_clone",
+      "description": "Discord desktop clone with Flutter",
+      "stars": 11,
+      "language": "Dart",
+      "fork": false,
+      "url": "https://github.com/harysuryanto/discord_desktop_clone",
+      "pushedAt": "2022-06-16"
+    },
+    {
+      "name": "avd_manager",
+      "description": "An app to manage your Android Virtual Devices.",
+      "stars": 4,
+      "language": "C++",
+      "fork": false,
+      "url": "https://github.com/harysuryanto/avd_manager",
+      "pushedAt": "2024-03-25"
+    },
+    {
+      "name": "clubhouse_clone",
+      "description": "Clubhouse clone using React Native.",
+      "stars": 4,
+      "language": "JavaScript",
+      "fork": false,
+      "url": "https://github.com/harysuryanto/clubhouse_clone",
+      "pushedAt": "2022-02-08"
+    },
+    {
+      "name": "tulis",
+      "description": "A Notepad on steroid 💪",
+      "stars": 1,
+      "language": "Dart",
+      "fork": false,
+      "url": "https://github.com/harysuryanto/tulis",
+      "pushedAt": "2026-07-24"
+    },
+    {
+      "name": "zor",
+      "description": "An app to plan your workouts.",
+      "stars": 1,
+      "language": "Dart",
+      "fork": false,
+      "url": "https://github.com/harysuryanto/zor",
+      "pushedAt": "2022-09-22"
+    },
+    {
+      "name": "diff-draft",
+      "description": "VS Code extension to generate senior-level commit message.",
+      "stars": 0,
+      "language": "TypeScript",
+      "fork": false,
+      "url": "https://github.com/harysuryanto/diff-draft",
+      "pushedAt": "2026-08-07"
+    },
+    {
+      "name": "cute_doggo",
+      "description": "Cute doggo in your desktop. Built with Flutter and Rive.",
+      "stars": 1,
+      "language": "C++",
+      "fork": false,
+      "url": "https://github.com/harysuryanto/cute_doggo",
+      "pushedAt": "2023-03-16"
+    },
+    {
+      "name": "Lyripeek",
+      "description": "",
+      "stars": 0,
+      "language": "Swift",
+      "fork": false,
+      "url": "https://github.com/harysuryanto/Lyripeek",
+      "pushedAt": "2026-08-08"
+    },
+    {
+      "name": "MemVibe",
+      "description": "",
+      "stars": 0,
+      "language": "Swift",
+      "fork": false,
+      "url": "https://github.com/harysuryanto/MemVibe",
+      "pushedAt": "2026-03-02"
+    },
+    {
+      "name": "tasbih_digital",
+      "description": "Aplikasi yang membantu Anda mengelola tasbih.",
+      "stars": 0,
+      "language": "TypeScript",
+      "fork": false,
+      "url": "https://github.com/harysuryanto/tasbih_digital",
+      "pushedAt": "2026-07-29"
+    },
+    {
+      "name": "flutter_mjpeg",
+      "description": "Flutter widget to show mjpeg stream from URL",
+      "stars": 0,
+      "language": "Dart",
+      "fork": true,
+      "url": "https://github.com/harysuryanto/flutter_mjpeg",
+      "pushedAt": "2026-03-24"
+    }
+  ]
+}
