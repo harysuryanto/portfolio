@@ -148,12 +148,12 @@
     }
   },
   "repos": {
-    "personal-portfolio": {
+    "portfolio": {
       "description": "",
       "stars": 0,
       "language": "Astro",
       "fork": false,
-      "url": "https://github.com/harysuryanto/personal-portfolio",
+      "url": "https://github.com/harysuryanto/portfolio",
       "pushedAt": "2026-10-23"
     },
     "BRB": {
