@@ -1,0 +1,102 @@
+---
+import { profile } from '../data/profile';
+---
+
+<section id="contact" class="py-20 sm:py-28 border-b" style="border-color: var(--rule-subtle);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <!-- Eyebrow -->
+    <div class="inline-flex items-center gap-2 text-xs font-mono tracking-wider uppercase mb-4" style="color: var(--accent);">
+      <span class="inline-block w-1.5 h-1.5 rounded-full" style="background-color: var(--accent);"></span>
+      <span>Let's talk</span>
+    </div>
+
+    <!-- Headline -->
+    <h2 class="text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-tight mb-6" style="font-family: var(--font-serif); color: var(--ink);">
+      Have a client system or mobile product to ship?
+    </h2>
+
+    <p class="text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed" style="color: var(--ink-secondary);">
+      Available for senior mobile engineering roles, contractor engagements, and hardware-adjacent client apps. Based in {profile.location} ({profile.timezoneLabel}), collaborating with teams globally.
+    </p>
+
+    <!-- Email Box -->
+    <div class="max-w-xl mx-auto p-6 sm:p-8 rounded-2xl border text-center space-y-6 shadow-sm" style="background-color: var(--surface); border-color: var(--rule-subtle);">
+      <div>
+        <div class="text-[11px] font-mono uppercase tracking-wider mb-1" style="color: var(--muted);">
+          Direct Email
+        </div>
+        <div class="text-lg sm:text-2xl font-mono font-bold tracking-tight select-all break-all" style="color: var(--ink);">
+          {profile.email}
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3 text-xs font-mono">
+        <a
+          href={`mailto:${profile.email}`}
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-semibold transition-all no-underline shadow-xs"
+          style="background-color: var(--accent); color: #ffffff;"
+        >
+          <span>Open in Mail Client</span>
+          <span>→</span>
+        </a>
+
+        <button
+          id="copy-email-btn"
+          type="button"
+          data-email={profile.email}
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg transition-colors cursor-pointer"
+          style="background-color: var(--surface-subtle); color: var(--ink); border: 1px solid var(--rule-subtle);"
+        >
+          <span id="copy-text">Copy email address</span>
+        </button>
+      </div>
+
+      <div id="copy-toast" class="hidden text-xs font-mono transition-opacity" style="color: var(--accent);">
+        ✓ Copied to clipboard
+      </div>
+    </div>
+
+    <!-- External profile links -->
+    <div class="mt-8 flex items-center justify-center gap-6 text-xs font-mono" style="color: var(--muted);">
+      <a
+        href={profile.githubUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-[var(--accent)] transition-colors"
+      >
+        GitHub: @{profile.githubUser}
+      </a>
+      <span>·</span>
+      <a
+        href={profile.twitterUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-[var(--accent)] transition-colors"
+      >
+        X: @{profile.twitterUser}
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  const btn = document.getElementById('copy-email-btn');
+  const label = document.getElementById('copy-text');
+  const toast = document.getElementById('copy-toast');
+
+  btn?.addEventListener('click', async () => {
+    const email = btn.getAttribute('data-email');
+    if (!email) return;
+    try {
+      await navigator.clipboard.writeText(email);
+      if (label) label.textContent = 'Copied!';
+      toast?.classList.remove('hidden');
+      setTimeout(() => {
+        if (label) label.textContent = 'Copy email address';
+        toast?.classList.add('hidden');
+      }, 2500);
+    } catch {
+      if (label) label.textContent = 'Failed to copy';
+    }
+  });
+</script>

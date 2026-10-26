@@ -1,11 +1,12 @@
 # Product Requirements Document (PRD)
-## Personal Engineering Portfolio (Single-Page)
+## Personal Engineering Portfolio — Editorial Logbook Edition
 
 - **Owner**: Hary Suryanto ([@harysuryanto](https://github.com/harysuryanto))
-- **Primary Identity**: Mobile Engineer (Flutter, Swift / iOS, React Native / Android, Systems)
-- **Flagship Project**: **Papyrus Photobox** (Cross-platform desktop & mobile, camera hardware integration, offline-first architecture)
-- **Target Audience**: Engineering leads, technical recruiters, founders, collaborators
-- **Architecture**: Single-Page Application (SPA experience) powered by Astro 7 SSG + Tailwind CSS v4
+- **Primary Identity**: Mobile & Systems Engineer (Flutter, React Native, Swift)
+- **Design Paradigm**: Editorial Engineering Logbook (warm cream/paper palette, Instrument Serif + Geist typography, signal orange accent, dark/light theme)
+- **Grounded Evidence**: All metrics and timelines derived directly from git commit history across 8 local checkouts (5,241 authored commits) and the GitHub API (46 public repos).
+- **Architecture**: Astro 7 SSG + Tailwind CSS v4 + self-hosted fonts. Native HTML `<details>` case-file disclosures (zero heavy client JS framework).
+- **Branch**: `redesign`
 - **Deployment**: GitHub Pages via GitHub Actions CI/CD
 
 ---
@@ -13,206 +14,106 @@
 ## 1. Product Overview & Strategic Goals
 
 ### 1.1 Objective
-Build a high-performance, single-page personal portfolio that showcases real-world mobile engineering depth, hardware/camera integrations, and production architecture. The site must communicate technical credibility in under 15 seconds.
+Present Hary Suryanto as a high-caliber mobile and systems engineer who builds software for demanding real-world operating environments (kiosks, trucks, municipal surveys, open offices). Every single claim, bullet point, and stat is grounded in source code and git history.
 
-### 1.2 Core Success Metrics
-- **Instant Positioning**: Clear mobile engineer identity and flagship highlight immediately visible above the fold.
-- **Deep Technical Showcase**: Visitors can inspect full architectural case studies (problem, architecture, key challenges, metrics) without leaving the page via a lightweight slide-over drawer.
-- **Lighthouse Performance**: 100/100 score on Performance, Accessibility, Best Practices, and SEO.
-- **Zero Runtime Bloat**: Zero heavy client framework runtime (no multi-megabyte React/Vue bundles); interactive drawer built with native lightweight JavaScript / Astro island.
-- **Automated Deployment**: GitHub Actions workflow that automatically validates, builds, and deploys to GitHub Pages upon push to `main`.
+### 1.2 Core Metrics & Verifiable Facts
+- **5,241 Authored Commits** across 8 app checkouts spanning November 2022 to October 2026.
+- **8 Shipped & Production Applications**:
+  1. *Papyrus Photobox* (Flutter, Windows/macOS/mobile kiosk HAL, Shorebird OTA, custom chunked MJPEG fork, 3D LUT shaders).
+  2. *Product Catalog* (Telkom Indonesia, React Native 0.86, Expo 57, React 19.2, Clean Architecture + MVVM migration, 70+ test files).
+  3. *Land Manifest* (Ravaniatech, Expo TaskManager background GPS worker, persistent 500-point FileSystem LocationQueue, WebSocket dispatch).
+  4. *SIPKL Kota Bandung* (Pemerintah Kota Bandung via Amal Solution, Mapbox vector maps, Shopify FlashList 60 FPS, 38 test files, EAS Update).
+  5. *BRB — Step Away Privacy* (macOS native Swift menu-bar daemon, CoreBluetooth LE RSSI EMA α=0.8 smoothing, 11-suite headless test runner).
+  6. *Cash* (React Native, Shopify Skia GPU financial curves, PocketBase, 24-hr offline query persister, multi-model AI receipt scanner).
+  7. *Amal Academy Learner* (Flutter, Midtrans Snap payment gateway, lifecycle-aware video player hooks, bilingual ARB l10n).
+  8. *Amal Partner Touchpoint* (Flutter, Hooks Riverpod, fl_chart multi-axis analytics, 7 management submodules).
+- **12 Curated Open-Source Repositories** from 46 public repos on GitHub with live star counts and push dates.
+- **100/100 Lighthouse Performance**: Zero external font requests, zero multi-megabyte UI frameworks, static build output under 1 second.
 
 ---
 
-## 2. User Experience & Information Architecture
-
-The application is structured as a continuous single-page layout with smooth anchor scrolling and an overlay drawer for technical deep dives.
+## 2. Information Architecture
 
 ```
-┌────────────────────────────────────────────────────────┐
-│ Sticky Navigation Header (Logo, #work, #skills, #exp, #contact) │
-├────────────────────────────────────────────────────────┤
-│ 1. Hero Section                                        │
-│    - Identity: Mobile Engineer                         │
-│    - Tagline & Core Specialization                     │
-│    - Status Badge ("Open to Mobile / Systems Roles")   │
-│    - Quick CTAs: [View Projects] [Resume] [Contact]    │
-├────────────────────────────────────────────────────────┤
-│ 2. Featured Projects & Case Studies                    │
-│    - Flagship Feature: Papyrus Photobox                │
-│      (Interactive Card, Tech Badges, Metrics, [Case Study Button])
-│    - Category Filter: All (8) | Flutter (3) | React Native (4) | Swift (1)│
-│    - Flagship: Papyrus Photobox (Kiosk HAL / WebRTC / Shorebird OTA) │
-│    - Companion Suite:                                                │
-│      • Land Manifest (Expo TaskManager / Background GPS / WebSocket) │
-│      • Product Catalog Telkom (RN 0.86 / Clean Architecture + MVVM)  │
-│      • SIPKL Mobile (Mapbox Vector GIS / FlashList / EAS OTA)        │
-│      • BRB (macOS Native Swift / CoreBluetooth RSSI EMA Engine)      │
-│      • Cash (React Native / Shopify Skia / PocketBase / Clean Arch)  │
-│      • Amal Academy CTP (Flutter / Riverpod / Midtrans Snap Payments)│
-│      • Amal Partner PTP (Flutter / Riverpod / FL Chart Analytics)    │
-├────────────────────────────────────────────────────────┤
-│ 3. Technical Arsenal & Architecture Matrix             │
-│    - Mobile Core (Flutter, Swift, React Native, Kotlin)│
-│    - Architecture (Clean Architecture, MVVM, Offline)  │
-│    - Hardware & Systems (Camera APIs, Platform Bridges)│
-│    - Tooling & DevOps (Fastlane, CI/CD, Stores)        │
-├────────────────────────────────────────────────────────┤
-│ 4. Experience & Shipped Milestones                     │
-│    - Reverse-chronological timeline of roles & products│
-├────────────────────────────────────────────────────────┤
-│ 5. Contact & Footer                                    │
-│    - Email (with 1-click copy toast & direct link)     │
-│    - GitHub, LinkedIn, Resume Download                 │
-└────────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────────────────────┐
+│ Sticky Masthead Header                                                 │
+│ • Monogram [HS] + Role                                                │
+│ • Anchor links (#work, #timeline, #approach, #open-source, #contact)   │
+│ • Live Jakarta WIB Clock (UTC+7) + Hireable Status + Theme Toggle (☼/☾)│
+├────────────────────────────────────────────────────────────────────────┤
+│ 1. Masthead Hero                                                       │
+│ • Label: MOBILE & SYSTEMS ENGINEER · INDONESIA                         │
+│ • Display Serif: "Hary Suryanto"                                       │
+│ • Mission: "I engineer mobile clients that survive the real world..."   │
+│ • Grounded Stats Strip: 5,241 Commits | 8 Apps | 46 Repos | Since 2016  │
+│ • Quick Actions: [Selected Work ↓] [Get in Touch →] [GitHub ↗]         │
+├────────────────────────────────────────────────────────────────────────┤
+│ 2. Signature Visual: Four-Year Activity Swimlane                       │
+│ • 48-month grid (Nov 2022 – Oct 2026) across all 8 projects            │
+│ • Intensity blocks scaled by authored commit volume                    │
+│ • Tooltip inspection per month block                                  │
+├────────────────────────────────────────────────────────────────────────┤
+│ 3. Selected Work Case Files (01–08)                                    │
+│ • Expandable native <details> rows with index, app icon, name, client   │
+│ • Expanded: Tagline, 5–6 verified architecture bullets, tech stack     │
+│ • Top 2 projects default-open for immediate depth                      │
+│ • Global "Expand all" / "Collapse all" control                         │
+├────────────────────────────────────────────────────────────────────────┤
+│ 4. Engineering Philosophy & Approach                                   │
+│ • 4 grounded principles with explicit "Evidence in code" citations:    │
+│   01. Assume the network will drop (FileSystem queue / query persister)│
+│   02. Ship fixes without app store reviews (Shorebird OTA / EAS Update)│
+│   03. Decouple domain rules from framework (Clean Arch / DI / 70+ tests)│
+│   04. Treat hardware as untrusted boundary (REST HAL / EMA smoothing)  │
+├────────────────────────────────────────────────────────────────────────┤
+│ 5. Toolbox                                                             │
+│ • Active rotation: Languages, Frameworks, State, Native APIs, Delivery │
+├────────────────────────────────────────────────────────────────────────┤
+│ 6. Open Source Experiments & Tools                                     │
+│ • 12 public GitHub repositories with live stars, languages, and dates  │
+├────────────────────────────────────────────────────────────────────────┤
+│ 7. Contact & Colophon                                                  │
+│ • Direct email card with 1-click clipboard copy toast feedback        │
+│ • GitHub and X/Twitter links                                           │
+│ • Colophon citing local git generation script and Astro 7 build        │
+└────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## 3. Detailed Component & Section Specifications
+## 3. Visual & Design System Specifications
 
-### 3.1 Header / Navbar
-- **Positioning**: Sticky top with backdrop blur (`backdrop-blur-md bg-neutral-900/80` or dynamic theme).
-- **Elements**:
-  - Left: Logo / Brand initials (`HS` or `hary.dev`).
-  - Center/Right: Anchor navigation links (`#work`, `#skills`, `#experience`, `#contact`).
-  - Action: Resume button or direct "Get in touch" CTA button.
-  - Mobile: Clean hamburger menu or compact horizontal pill.
+### 3.1 Palette Tokens (CSS Custom Properties)
+- **Light Theme (Warm Paper / Editorial)**:
+  - Background: `#fbf9f4`
+  - Surface: `#ffffff`
+  - Subtle Surface: `#f4efe4`
+  - Rule / Border: `#e5dec9`
+  - Ink (Primary Text): `#181613`
+  - Ink Secondary: `#575249`
+  - Muted: `#8c8477`
+  - Accent (Signal Orange): `#ff5a1f`
+- **Dark Theme (Warm Basalt)**:
+  - Background: `#100f0d`
+  - Surface: `#171512`
+  - Subtle Surface: `#201d18`
+  - Rule / Border: `#2a261f`
+  - Ink: `#f7f4ed`
+  - Ink Secondary: `#b7ad9d`
+  - Muted: `#7a7264`
+  - Accent: `#ff6a33`
 
-### 3.2 Hero Section
-- **Headline**: High-impact statement establishing seniority and discipline.
-  - *Example*: *"Mobile Engineer building high-performance client applications, native hardware bridges, and fluid user experiences."*
-- **Sub-headline**: Concise summary of technology breadth (Flutter, Swift, React Native, Clean Architecture).
-- **Status Indicator**: Subtle glowing badge (e.g., green dot + *"Shipping apps & open to new opportunities"*).
-- **Action Group**:
-  - Primary button: Anchor to `#work` ("Explore Work").
-  - Secondary button: Resume view/download.
-  - Social quick links: GitHub, LinkedIn, Email icons.
-
-### 3.3 Projects Section & Flagship Showcase
-- **Flagship Card: Papyrus Photobox**:
-  - Full-width hero card featuring:
-    - Badges: `Flutter`, `macOS / Desktop`, `iOS / Android`, `Hardware Integration`, `Camera Bridge`.
-    - Key Highlights: Cross-platform reliability, low-latency live camera feed, offline-first transaction/session sync, kiosk printing pipeline.
-    - Prominent action: **"Read Architectural Case Study →"** (triggers the drawer).
-  - **Category Filter Tabs**: Visitors can filter on-the-fly across `All (8)`, `Flutter (3)`, `React Native (4)`, and `Swift / macOS (1)`.
-  - **Land Manifest**: Enterprise fleet and driver telemetry application built with React Native and Expo TaskManager. Focus: Background GPS tracking, local FileSystem offline queuing, and real-time WebSocket dispatch.
-  - **Product Catalog (Telkom)**: Enterprise sales-enablement mobile platform supporting consultative selling. Focus: Clean Architecture + MVVM migration, DI container, dynamic pricing calculation, Expo SDK 57 / RN 0.86.
-  - **SIPKL Mobile**: Geospatial field verification platform. Focus: Mapbox vector clustering, Shopify FlashList 60FPS recycling, client image downsampling, and staged EAS Update OTA channels.
-  - **BRB**: macOS menu bar utility written in native Swift / SwiftUI using Bluetooth proximity RSSI tracking for auto-locking and tamper security.
-  - **Cash**: Personal wealth and cash flow tracker built with React Native / Expo, Clean Architecture, and PocketBase. Focus: Offline persistence, domain separation, robust testing.
-  - **Amal Academy (CTP)**: Consumer EdTech Flutter app with Midtrans Snap payment gateway integration and interactive video player hooks.
-  - **Amal Partner (PTP)**: Educational partner touchpoint with FL Chart multi-axis analytics and virtualized roster grids.
-- **Card Content**: Title, brief problem/solution overview, key technical tags, direct repository/demo links (if public), and Case Study trigger.
-
-### 3.4 Interactive Case Study Drawer (Deep-Dive Modal)
-- **Behavior**:
-  - Slides in smoothly from the right side of the screen on desktop (or slides up from bottom on mobile).
-  - Background overlay with dimming and blur.
-  - Keyboard accessible: closes on `Esc` key press, traps focus when open, returns focus to triggering button upon close.
-  - URL hash support: optionally updates hash (e.g. `#project-papyrus`) so deep links can open the drawer directly.
-- **Drawer Structure**:
-  1. **Header**: Project Title, Platform badges, Close button (`×` / `Esc`).
-  2. **The Problem / Context**: Why the app was built, target operational environment (e.g. self-service photo kiosks, commercial booth events).
-  3. **Technical Architecture**: Diagram or structured list of modules (Presentation / Domain / Data / Native Hardware Driver).
-  4. **Key Technical Challenges & Solutions**:
-     - *Challenge 1*: Direct camera hardware control, frame rate optimization, zero-drop capture.
-     - *Challenge 2*: Offline reliability, print queue synchronization, fault-tolerant state recovery.
-  5. **Tech Stack & Libraries**: Comprehensive breakdown of libraries and tools used.
-  6. **Results & Metrics**: Stability, latency, throughput, or deployment footprint.
-
-### 3.5 Technical Arsenal & Architecture Matrix
-- Categorized into clear engineering domains (avoiding meaningless percentage bars):
-  - **Mobile Client**: Flutter & Dart, Swift & SwiftUI, React Native & TypeScript, Kotlin / Jetpack Compose.
-  - **Architecture & Paradigms**: Clean Architecture, MVVM / Riverpod, Offline-first caching (Drift, SQLite), Native Platform Channels / JSI.
-  - **Hardware & Native**: External Camera SDKs, Bluetooth Low Energy (BLE), USB/Serial Kiosk hardware, CoreBluetooth.
-  - **DevOps & Tooling**: Fastlane, GitHub Actions, App Store Connect, Google Play Console, Postman, Git.
-
-### 3.6 Experience & Shipped Milestones
-- Chronological timeline displaying:
-  - Role Title, Organization / Client / Product name, Timeframe.
-  - 2–3 bullet points highlighting technical decisions, scale, and shipped outcomes (e.g., reduced crash rate, automated build pipeline, hardware integration).
-
-### 3.7 Contact & Footer
-- **Direct Mailto**: One-click email button with a companion **"Copy Email"** button that shows a brief toast confirmation ("Copied to clipboard!").
-- **External Links**: GitHub (`github.com/harysuryanto`), LinkedIn, Resume link.
-- **Copyright & Tech Stamp**: "Built with Astro & Tailwind CSS v4. Deployed to GitHub Pages."
+### 3.2 Typography Tokens
+- **Display Serif**: Instrument Serif (`@fontsource/instrument-serif`), italic and upright, for headlines, section titles, and project taglines.
+- **Body & Sans**: Geist Variable (`@fontsource-variable/geist`), for editorial paragraphs, descriptions, and UI text.
+- **Data & Mono**: Geist Mono Variable (`@fontsource-variable/geist-mono`), for code references, commit stats, timestamps, badges, and technical annotations.
 
 ---
 
-## 4. Technical Specifications & Architecture
+## 4. Maintenance & Scripting
 
-### 4.1 Tech Stack
-- **Framework**: Astro 7 (`astro`) in static site generation (SSG) mode.
-- **Styling**: Tailwind CSS v4 (`@tailwindcss/vite`) via `@import "tailwindcss";` in `src/styles/global.css`.
-- **Package Manager**: `bun`.
-- **Language**: TypeScript (`strict: true`).
-- **Icons**: Clean SVG icon system (Lucide-style or accessible inline SVGs).
-
-### 4.2 Data Layer Architecture
-All project data, skills, and experience items are typed and centralized in TypeScript files inside `src/data/`:
+The static dataset `src/data/activity.json` is generated directly from local checkouts using:
+```bash
+bun run data:activity
 ```
-src/
-├── data/
-│   ├── siteConfig.ts       # Name, bio, social links, SEO defaults
-│   ├── projects.ts         # Project metadata, metrics, and case study content
-│   ├── skills.ts           # Categorized technical skills & tools
-│   └── experience.ts       # Work history and milestone items
-├── components/
-│   ├── Header.astro        # Sticky navigation
-│   ├── Hero.astro          # Hero section
-│   ├── ProjectCard.astro   # Card representation
-│   ├── CaseStudyDrawer.astro # Slide-over modal with vanilla JS controller
-│   ├── SkillsMatrix.astro  # Categorized skills
-│   ├── Experience.astro    # Timeline
-│   ├── Contact.astro       # CTA & email copy
-│   └── Footer.astro        # Footer metadata
-├── layouts/
-│   └── BaseLayout.astro    # HTML head, meta, fonts, analytics, theme
-└── pages/
-    └── index.astro         # Single-page assembly
-```
-
-### 4.3 Case Study Drawer Implementation
-- Pure Vanilla JavaScript embedded in the Astro component:
-  - Accessible via ARIA attributes: `role="dialog"`, `aria-modal="true"`, `aria-labelledby`.
-  - Event listeners for `Escape` key, backdrop click, and close button.
-  - Body scroll lock (`overflow: hidden` on `document.body` when open) to prevent dual-scrolling.
-
----
-
-## 5. Deployment & CI/CD Pipeline
-
-### 5.1 GitHub Pages Configuration
-- **Repository**: `harysuryanto/personal-portfolio`
-- **Astro Config (`astro.config.mjs`)**:
-  ```javascript
-  export default defineConfig({
-    site: 'https://harysuryanto.github.io',
-    base: '/personal-portfolio',
-    vite: {
-      plugins: [tailwindcss()]
-    }
-  });
-  ```
-  *(Note: If a custom domain like `harysuryanto.com` or `hary.dev` is added later, `base` will be changed to `/`).*
-
-### 5.2 GitHub Actions Workflow (`.github/workflows/deploy.yml`)
-1. Trigger on `push` to `main` branch.
-2. Setup Bun (`oven-sh/setup-bun@v2`).
-3. Setup Node.js 22.x for Astro dependencies.
-4. Install dependencies: `bun install --frozen-lockfile`.
-5. Run build: `bun run build`.
-6. Deploy to GitHub Pages via official `actions/deploy-pages@v4`.
-
----
-
-## 6. Execution Roadmap & Milestones
-
-| Phase | Description | Key Deliverables |
-| :--- | :--- | :--- |
-| **Phase 1** | PRD & Specifications (Current) | `PRD.md` approved. |
-| **Phase 2** | Theme & Shell Foundation | `BaseLayout.astro`, Tailwind v4 dark-first theme tokens, typography, Header, Footer. |
-| **Phase 3** | UI Components & Drawer Engine | `Hero.astro`, `ProjectCard.astro`, `CaseStudyDrawer.astro`, `SkillsMatrix.astro`, `Experience.astro`. |
-| **Phase 4** | Content & Case Study Authoring | Rich case study data for **Papyrus Photobox**, **Cash**, and **BRB**. |
-| **Phase 5** | Polish, SEO, CI/CD & Deploy | Meta tags, OpenGraph cards, `.github/workflows/deploy.yml`, verification build. |
+This updates commit metrics, monthly heatmaps, and live GitHub repository stars/metadata before release.

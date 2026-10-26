@@ -1,29 +1,33 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
-import ProjectsSection from '../components/ProjectsSection.astro';
-import SkillsMatrix from '../components/SkillsMatrix.astro';
-import Experience from '../components/Experience.astro';
-import Contact from '../components/Contact.astro';
-import CaseStudyDrawer from '../components/CaseStudyDrawer.astro';
+import Timeline from '../components/Timeline.astro';
+import WorkSection from '../components/WorkSection.astro';
+import PrinciplesSection from '../components/PrinciplesSection.astro';
+import ToolboxSection from '../components/ToolboxSection.astro';
+import OpenSourceSection from '../components/OpenSourceSection.astro';
+import ContactSection from '../components/ContactSection.astro';
 ---
 
 <BaseLayout>
-  <!-- Hero Section -->
+  <!-- Masthead Hero -->
   <Hero />
 
-  <!-- Selected Work / Flagship Showcase -->
-  <ProjectsSection />
+  <!-- Four-Year Activity Swimlane (2022–2026) -->
+  <Timeline />
 
-  <!-- Technical Skills & Architecture Matrix -->
-  <SkillsMatrix />
+  <!-- Case Files: Selected Work (01–08) -->
+  <WorkSection />
 
-  <!-- Experience & Production Milestones -->
-  <Experience />
+  <!-- How I Work: Evidenced Principles -->
+  <PrinciplesSection />
 
-  <!-- Direct Contact & Socials -->
-  <Contact />
+  <!-- Technologies in Active Rotation -->
+  <ToolboxSection />
 
-  <!-- Slide-Over Case Study Drawer Modal -->
-  <CaseStudyDrawer />
+  <!-- Open Source Repositories & Experiments -->
+  <OpenSourceSection />
+
+  <!-- Contact & Collaboration -->
+  <ContactSection />
 </BaseLayout>

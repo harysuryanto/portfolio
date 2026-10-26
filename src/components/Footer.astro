@@ -1,66 +1,39 @@
 ---
-import { siteConfig } from '../data/siteConfig';
-const currentYear = new Date().getFullYear();
+import { profile } from '../data/profile';
+const year = new Date().getFullYear();
 ---
 
-<footer class="border-t border-zinc-900 bg-zinc-950 text-zinc-400 py-12 relative overflow-hidden">
+<footer class="py-12 text-xs font-mono" style="background-color: var(--bg); color: var(--muted);">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
-      <!-- Brand & Tagline -->
-      <div class="flex flex-col items-center sm:items-start text-center sm:text-left">
-        <div class="flex items-center gap-2">
-          <span class="font-mono font-bold text-zinc-100 tracking-tight">{siteConfig.name}</span>
-          <span class="text-zinc-600">/</span>
-          <span class="text-xs font-mono text-zinc-400">Mobile Engineer</span>
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+      <div>
+        <div class="font-semibold" style="color: var(--ink);">
+          {profile.name}
         </div>
-        <p class="text-xs text-zinc-500 mt-1 max-w-sm">
-          High-performance client architectures, hardware/camera integration, and clean codebases.
-        </p>
+        <div class="text-[11px] mt-0.5" style="color: var(--muted);">
+          All statistics derived from git history across 8 local checkouts and the GitHub API.
+        </div>
       </div>
 
-      <!-- Social & Anchors -->
-      <div class="flex items-center gap-4 text-xs font-medium">
+      <div class="flex items-center gap-4 text-[11px]">
         <a
-          href={siteConfig.socials.github}
+          href="https://github.com/harysuryanto/portfolio"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-zinc-400 hover:text-zinc-100 transition-colors"
+          class="hover:text-[var(--accent)] transition-colors"
         >
-          GitHub
+          View site source on GitHub ↗
         </a>
-        <span class="text-zinc-800">•</span>
-        <a
-          href={siteConfig.socials.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-zinc-400 hover:text-zinc-100 transition-colors"
-        >
-          LinkedIn
-        </a>
-        <span class="text-zinc-800">•</span>
-        <a
-          href={siteConfig.socials.email}
-          class="text-zinc-400 hover:text-emerald-400 transition-colors"
-        >
-          Email
-        </a>
-        <span class="text-zinc-800">•</span>
-        <a
-          href="#work"
-          class="text-zinc-400 hover:text-zinc-100 transition-colors"
-        >
-          Back to Top ↑
+        <span>·</span>
+        <a href="#top" class="hover:text-[var(--accent)] transition-colors">
+          Top ↑
         </a>
       </div>
     </div>
 
-    <!-- Tech stamp & Copyright -->
-    <div class="mt-8 pt-6 border-t border-zinc-900/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-zinc-500 font-mono">
-      <span>© {currentYear} {siteConfig.name}. All rights reserved.</span>
-      <div class="flex items-center gap-2">
-        <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-        <span>Astro 7 SSG • Tailwind v4 • GitHub Pages</span>
-      </div>
+    <div class="mt-8 pt-6 border-t flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-[10px]" style="border-color: var(--rule-subtle);">
+      <span>© {year} {profile.name}. Hosted on GitHub Pages.</span>
+      <span>Astro 7 · Tailwind v4 · Zero client framework bundles</span>
     </div>
   </div>
 </footer>
